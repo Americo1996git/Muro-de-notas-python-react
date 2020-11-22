@@ -6,6 +6,7 @@ import MessageList from './components/MessageLIst';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navigation from './components/Navigation';
+import CrearNota from './components/CrearNota';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <div className="container p-4">
           <Switch>
             <Route exact path="/" component={MessageList} />
+            <Route exact path="/crear" component={CrearNota} />
           </Switch>
         </div>
       </Router>

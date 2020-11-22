@@ -5,21 +5,19 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const GET_MESSAGES = gql `
         {
-            
-          
             notas{
-             edges {
-               node {
-                 id
-                 titulo
-                 descripcion
-                 
-               }
-             }
-           }
-         
-         
-              
+              edges{
+                node{
+                  id
+                  titulo
+                  descripcion,
+                  persona{
+                    id
+                    nombre
+                  }
+                }
+              }
+            }              
         }
 `;
 
@@ -44,6 +42,7 @@ const MessageLIste = () => {
                           </div>
                           <div className="card-body">
                             <p> {nota.node.descripcion} </p>
+                            <span class="badge badge-pill badge-dark">{nota.node.persona.nombre}</span>
                           </div>
                           <div className="card-footer">
                             <button className="btn btn-danger" >Eliminar</button>
