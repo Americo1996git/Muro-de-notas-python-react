@@ -34,7 +34,7 @@ const MessageLIste = () => {
          
               {
                 data.notas.edges.map( nota =>(
-                  <div className="col-md-4 p2"  key={nota.node.id} >
+                  <div className="col-md-4 p-2"  key={nota.node.id} >
                       <div className="card">
                           <div className="card-header d-flex justify-content-between">
                             <h5>{nota.node.titulo}</h5>
@@ -42,7 +42,7 @@ const MessageLIste = () => {
                           </div>
                           <div className="card-body">
                             <p> {nota.node.descripcion} </p>
-                            <span class="badge badge-pill badge-dark">{nota.node.persona.nombre}</span>
+                            <span className="badge badge-pill badge-dark">{nota.node.persona.nombre}</span>
                           </div>
                           <div className="card-footer">
                             <button className="btn btn-danger" >Eliminar</button>
