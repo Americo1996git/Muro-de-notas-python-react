@@ -5,14 +5,18 @@ import {gql} from 'apollo-boost';
 const GET_MESSAGES = gql `
         {
             
-            allIngredients {
-                edges {
-                  node {
-                    name
-                    notes
-                  }
-                }
-              }
+          
+            notas{
+             edges {
+               node {
+                 titulo
+                 descripcion
+                 
+               }
+             }
+           }
+         
+         
               
         }
 `;
