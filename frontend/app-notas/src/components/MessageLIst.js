@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import {gql} from 'apollo-boost';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const GET_MESSAGES = gql `
         {
@@ -32,18 +33,26 @@ const MessageLIste = () => {
 
     return(
         <div className="row" >
-          <div className="col-md-4 p2">
+         
               {
                 data.notas.edges.map( nota =>(
-                  <div key={nota.node.id} className="card">
-                    <div className="card-body">
-                      <h4> {nota.node.titulo} </h4>
-                      <p> {nota.node.descripcion} </p>
-                    </div>
+                  <div className="col-md-4 p2"  key={nota.node.id} >
+                      <div className="card">
+                          <div className="card-header d-flex justify-content-between">
+                            <h5>{nota.node.titulo}</h5>
+                            <Link className="btn btn-secondary" to="/" >Editar</Link>
+                          </div>
+                          <div className="card-body">
+                            <p> {nota.node.descripcion} </p>
+                          </div>
+                          <div className="card-footer">
+                            <button className="btn btn-danger" >Eliminar</button>
+                          </div>
+                      </div>
                   </div>
                 ))
               }
-          </div>
+          
         </div>
     )
 }
