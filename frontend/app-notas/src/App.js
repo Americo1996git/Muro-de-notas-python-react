@@ -3,16 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import MessageList from './components/MessageLIst';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
       <Router>
-        <Switch>
-          <Route exact path="/" component={MessageList} />
-        </Switch>
+        <div className="container p-4">
+          <Switch>
+            <Route exact path="/" component={MessageList} />
+          </Switch>
+        </div>
       </Router>
-    </div>
+
   );
 }
 

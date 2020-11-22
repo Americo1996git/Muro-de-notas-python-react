@@ -9,6 +9,7 @@ const GET_MESSAGES = gql `
             notas{
              edges {
                node {
+                 id
                  titulo
                  descripcion
                  
@@ -28,10 +29,21 @@ const MessageLIste = () => {
     if(error) {
         return <p>Loading</p>
     }
-console.log(data);
-    return(
-        <div>
 
+    return(
+        <div className="row" >
+          <div className="col-md-4 p2">
+              {
+                data.notas.edges.map( nota =>(
+                  <div key={nota.node.id} className="card">
+                    <div className="card-body">
+                      <h4> {nota.node.titulo} </h4>
+                      <p> {nota.node.descripcion} </p>
+                    </div>
+                  </div>
+                ))
+              }
+          </div>
         </div>
     )
 }
