@@ -22,7 +22,7 @@ const GET_MESSAGES = gql `
 `;
 
 
-const MessageLIste = () => {
+const ListaNotas = () => {
     const { loading, error, data } = useQuery(GET_MESSAGES)
     if(loading) return <p>Loading</p>
     if(error) {
@@ -56,4 +56,4 @@ const MessageLIste = () => {
     )
 }
 
-export default MessageLIste;
+export default ListaNotas;

@@ -1,6 +1,7 @@
 import React, {Component, useState} from 'react';
 import {gql} from 'apollo-boost';
 import { useQuery, useMutation } from '@apollo/react-hooks';
+import { Redirect } from 'react-router-dom';
 
 const GET_PERSONAS = gql `
         {
@@ -50,7 +51,7 @@ const MessageList = () => {
                 <h4>Crear Nota</h4>
                 {/* SELECT USER*/}
                 <div className="form-group">
-                    <select className="form-control" name="persona" onChange={e => setPersona(e.target.value)} value={persona} >
+                    <select className="form-control" name="persona" onChange={e => {setPersona(e.target.value);console.log(e.target.value)} } value={persona} >
                         {
                              data.personas.edges.map(user => 
                              <option key={user.node.id} value={user.node.id}>
@@ -69,10 +70,10 @@ const MessageList = () => {
                     </textarea>        
                 </div>
 
-                 <form onSubmit={  e => {
+                 <form onSubmit={ async e => {
                      e.preventDefault();
-                     createNote({variables: {titulo, descripcion, persona}})
-     
+                     await createNote({variables: {titulo, descripcion, persona}})
+                     alert('La nota se creo')
                  } }>
                     <button type="submit" className="btn btn-primary">
                         Guardar
